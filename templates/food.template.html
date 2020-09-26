@@ -4,7 +4,11 @@
 <h1>Food eaten today</h1>
 <ul class="list-group">
     {%for food in all_food %}
-        <li class="list-group-item">{{food.name}} ({{food.calories}})</li>
+        <li class="list-group-item">
+            {{food.name}} ({{food.calories}})
+            <a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-primary btn-sm">Edit</a>
+        
+        </li>
     {%endfor%}
 </ul>
 {% endblock %}
