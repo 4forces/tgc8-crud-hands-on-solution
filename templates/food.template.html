@@ -1,0 +1,10 @@
+{% extends 'base.template.html' %}
+
+{% block content %}
+<h1>Food eaten today</h1>
+<ul class="list-group">
+    {%for food in all_food %}
+        <li class="list-group-item">{{food.name}} ({{food.calories}})</li>
+    {%endfor%}
+</ul>
+{% endblock %}

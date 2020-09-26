@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Chicken Rice",
+    "calories": 600,
+    "date": "26/9/2020",
+    "meal": "lunch"
+  },
+  {
+    "id": 1,
+    "name": "Ramen",
+    "calories": 600,
+    "date": "26/9/2020",
+    "meal": "dinner"
+  },
+  {
+    "id": 1,
+    "name": "Roti Prata",
+    "calories": 600,
+    "date": "26/9/2020",
+    "meal": "snack"
+  }
+]
