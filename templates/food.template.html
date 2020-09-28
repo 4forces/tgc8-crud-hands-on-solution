@@ -7,7 +7,7 @@
         <li class="list-group-item">
             {{food.name}} ({{food.calories}})
             <a href="{{ url_for('show_edit_food', food_id=food.id) }}" class="btn btn-primary btn-sm">Edit</a>
-        
+            <a href="{{ url_for('show_delete_food', food_id=food.id) }}" class="btn btn-danger btn-sm">Delete</a>
         </li>
     {%endfor%}
 </ul>

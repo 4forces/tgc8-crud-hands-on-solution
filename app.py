@@ -74,9 +74,48 @@ def process_edit_food(food_id):
         return redirect(url_for('show_food'))
 
     else:
-         return f"The food record with the id of {food_id} is not found!"
+        return f"The food record with the id of {food_id} is not found!"
 
 
+@app.route('/foods/<int:food_id>/delete')
+def show_delete_food(food_id):
+    food_to_delete = None
+    # linear search
+    for food_record in database:
+        if food_record['id'] == food_id:
+            food_to_delete = food_record
+            break
+
+    if food_record:
+        return render_template('show_delete_food.template.html',
+                               food=food_to_delete)
+    else:
+        return f"The food record with the id {food_id} is not found"
+
+
+@app.route('/foods/<int:food_id>/delete', methods=["POST"])
+def process_delete_food(food_id):
+    food_to_delete = None
+
+    # linear search
+    for food_record in database:
+        if food_record['id'] == food_id:
+            food_to_delete = food_record
+            break
+
+    # if food_to_delete is not None:
+    if food_to_delete:
+        print(food_to_delete)
+        database.remove(food_to_delete)
+
+        # save back to the database
+        with open('food.json', 'w') as fp:
+            json.dump(database, fp)
+
+        return redirect(url_for('show_food'))
+
+    else:
+        return f"The food record with the id of {food_id} is not found"
 
 
 # "magic code" -- boilerplate
